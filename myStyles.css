@@ -1,0 +1,243 @@
+* {box-sizing:border-box}
+
+:root {
+  --text-color:  #505050;
+}
+
+/* Slideshow container */
+.slideshow-container-Fractal3D {
+  width: 300px;
+  height: 370px;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.slideshow-container-Fractals {
+  width: 300px;
+  height: 370px;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.slideshow-container-Automata {
+  width: 300px;
+  height: 370px;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.slideshow-container-Attractors {
+  width: 300px;
+  height: 370px;
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.dot3D { inherits: dot }
+.dotFractals { inherits: dot }
+.dotAutomata { inherits: dot }
+.dotAttractors { inherits: dot }
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: 2;
+  /*animation-iteration-count: infinite; */
+}
+
+@keyframes fade {
+  from {opacity: .01}
+  to {opacity: 1}
+}
+
+ul 
+{ 
+  background-color: lightgray;
+}
+
+li
+{
+  padding: 3px
+}
+
+.footer
+{
+  padding: 4px;
+  font-family: Arial;
+  color: var(--text-color);
+  text-align: center;
+  position:relative;
+}
+
+.imageName
+{
+  padding: 4px;
+  font-family: Arial;
+  font-weight: bold;
+  color: var(--text-color);
+  text-align: center;
+  position:relative;
+  width:145px;height:145px;
+}
+
+.titleLeft
+{
+  text-align: left;
+  padding: 5px 10px;
+  color: var(--text-color);
+}
+
+.subTitleLeft
+{
+  padding: 5px 100px;
+  font-family: Arial;
+  color: var(--text-color);
+  text-align: left;
+  position:relative;
+}
+
+.titleCenter
+{
+  text-align: center;
+  padding: 5px 4px;
+  color: var(--text-color);
+}
+
+.text
+{
+  padding: 4px;
+  font-size: 16px;
+  font-family: Arial;
+  color: var(--text-color);
+}
+
+.textLeft
+{
+  padding: 5px 10px;
+  font-family: Arial;
+  color: var(--text-color);
+  text-align: left;
+  position:relative;
+}
+
+.textRight
+{
+  padding: 5px 100px;
+  font-family: Arial;
+  color: var(--text-color);
+  text-align: right;
+  position:relative;
+}
+
+.textBox
+{
+  padding: 5px 5px;
+  font-family: Arial;
+  font-size:medium;
+  color: var(--text-color);
+  text-align: center;
+  position:relative;
+}
+
+.textCenter
+{
+  text-align:center;
+  color: var(--text-color);
+}
+
+.galleryImageBlock
+{
+  position: relative;
+  width:145px;height:210px;
+}
+
+.galleryImage
+{
+  width:145px;height:145px;
+}
+
+.galleryRow1
+{
+  padding: 0px 200px 0px 200px;
+}
+
+.galleryRow
+{
+  padding: 0px 200px;
+}
+
+.imageButton
+{
+  border: none;
+  background-color: inherit;
+}
+
+.centerImageWidth50 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.centerImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.vertical-center-right {
+  display: flex;
+  align-items: center;
+  justify-content:end;
+  flex-wrap: wrap;
+}
+
+.vertical-center-left{
+  display: flex;
+  align-items: center;
+  justify-content:start;
+  flex-wrap: wrap;
+}
+
+.listDefault {
+  background: #ffffff;
+  padding: 5px 5px 5px 10px;
+}
+
+.listItemDefault {
+  background: #ffffff;
+  color: #000000;
+  padding: 5px;
+  margin-left: 35px;
+  list-style-type:circle;
+}
+
+.single-image {
+    object-position: center;
+    object-fit: cover;
+    height: 700px;
+    width: 700px;
+}
+

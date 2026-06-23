@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Julia Set Gallery</title>
+    <link rel="stylesheet" href="myStyles.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="scripts.js"></script>
+    <script>
+      let _localGroupsFractals;
+      let _numberOfGalleries;
+      let _currentGalleryIndex = 0;
+      function loadGalleryXMLDoc() {
+        loadGalleryFractalsXml();
+      }
+
+      function loadGalleryFractalsXml(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            loadFractalsForGallery(this);
+          }
+        };
+        xmlhttp.open("GET", "Images//Fractals.xml", true); 
+        xmlhttp.send();
+      }
+
+      function loadFractalGalleryImages(groups) { 
+        _localGroupsFractals = groups;
+        _numberOfGalleries = _localGroupsFractals.length/12;
+        currentGalleryIndex = _numberOfGalleries-1;
+        FillGalleryList(currentGalleryIndex);
+        LoadGallery(currentGalleryIndex);
+      }
+
+      function FillGalleryList(selected)  {
+        var select = document.getElementById("galleryList");
+        for (var i = 0; i < _numberOfGalleries; i++) {
+          var option = document.createElement("option");
+          option.text = "Julia " + (i+1);
+          option.value = i+1;
+          select.add(option);
+        }
+        select.selectedIndex = selected;
+      }     
+
+      function showGallery(value)
+      {
+        LoadGallery(value-1);
+      }
+
+      function LoadGallery(galleryNumber){
+        _currentGalleryIndex = galleryNumber;
+        document.getElementById("galleryTitle").innerHTML = "Julia Set Gallery " + (galleryNumber+1);
+        firstImage = galleryNumber * 12;
+        images = getBestImageDataList(_localGroupsFractals, firstImage, 12, 145); 
+        if(images.length > 0){
+          image = images[0];
+          document.getElementById("image1").src = image.ImagePath;
+          document.getElementById("name1").innerHTML = image.Name;
+        }
+        if(images.length > 1){
+          image = images[1];
+          document.getElementById("image2").src = image.ImagePath;
+          document.getElementById("name2").innerHTML = image.Name;
+        }
+        if(images.length > 2){
+          image = images[2];
+          document.getElementById("image3").src = image.ImagePath;
+          document.getElementById("name3").innerHTML = image.Name;
+        }
+        if(images.length > 3){
+          image = images[3];
+          document.getElementById("image4").src = image.ImagePath;
+          document.getElementById("name4").innerHTML = image.Name;
+        }
+        if(images.length > 4){
+          image = images[4];
+          document.getElementById("image5").src = image.ImagePath;
+          document.getElementById("name5").innerHTML = image.Name;
+        }
+        if(images.length > 5){
+          image = images[5];
+          document.getElementById("image6").src = image.ImagePath;
+          document.getElementById("name6").innerHTML = image.Name;
+        }
+        if(images.length > 6){
+          image = images[6];
+          document.getElementById("image7").src = image.ImagePath;
+          document.getElementById("name7").innerHTML = image.Name;
+        }
+        if(images.length > 7){
+          image = images[7];
+          document.getElementById("image8").src = image.ImagePath;
+          document.getElementById("name8").innerHTML = image.Name;
+        }
+        if(images.length > 8){
+          image = images[8];
+          document.getElementById("image9").src = image.ImagePath;
+          document.getElementById("name9").innerHTML = image.Name;
+        }
+        if(images.length > 9){
+          image = images[9];
+          document.getElementById("image10").src = image.ImagePath;
+          document.getElementById("name10").innerHTML = image.Name;
+        }
+        if(images.length > 10){
+          image = images[10];
+          document.getElementById("image11").src = image.ImagePath;
+          document.getElementById("name11").innerHTML = image.Name;
+        }
+        if(images.length > 11){
+          image = images[11];
+          document.getElementById("image12").src = image.ImagePath;
+          document.getElementById("name12").innerHTML = image.Name;
+        }
+      }
+
+      function onClickImage(imageIndex){
+        var library = "Fractals",
+        index = imageIndex;
+        var params = new URLSearchParams();
+        params.append("library", library);
+        params.append("index", JSON.stringify(index));
+
+        var url = "Single.html?" + params.toString();
+        location.href = url;
+      }
+
+    </script>
+  </head>
+  <body onload="loadGalleryXMLDoc()">
+    <div class="container-fluid" id="main" >
+      <div class="container-fluid text-bg-secondary">
+        <img class="img-fluid" src="Images/FractalBanner2.png"/> 
+      </div>
+    
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Galleries</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="GalleryJuliaSets.html">Julia Sets</a></li>
+            <li><a class="dropdown-item" href="GalleryAutomata.html">Cellular Automata</a></li>
+            <li><a class="dropdown-item" href="GalleryAttractors.html">Strange Attractors</a></li>
+            <li><a class="dropdown-item" href="GalleryFractal3d.html">3D Fractals</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Algorithms</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="FractalAlgorithm.html">Julia and Mandelbrot Sets</a></li>
+            <li><a class="dropdown-item" href="AutomataAlgorithm.html">Cellular Automata</a></li>
+            <li><a class="dropdown-item" href="AttractorAlgorithm.html">Strange Attractors</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About.html">About</a>
+        </li>
+      </ul>
+    
+      <div class="titleCenter">
+        <h4 id="galleryTitle"></h4>
+      </div>
+
+      <div class="row galleryRow1">
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 0)">        
+          <img id="image1"  class="galleryImage" /> 
+          <p class="imageName" id="name1"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 1)">  
+          <img id="image2" class="galleryImage"  /> 
+          <p class="imageName" id="name2"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 2)">  
+          <img id="image3"  class="galleryImage"  /> 
+          <p class="imageName" id="name3"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 3)">  
+          <img id="image4"  class="galleryImage"  /> 
+          <p class="imageName" id="name4"></p>
+        </div>
+      </div>
+
+      <div class="row galleryRow" >
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 4)">        
+          <img id="image5"  class="galleryImage" /> 
+          <p class="imageName" id="name5"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 5)">  
+          <img id="image6" class="galleryImage"  /> 
+          <p class="imageName" id="name6"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 6)">  
+          <img id="image7"  class="galleryImage"  /> 
+          <p class="imageName" id="name7" ></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 7)">  
+          <img id="image8"  class="galleryImage"  /> 
+          <p class="imageName" id="name8"></p>
+        </div>
+      </div>
+
+      <div class="row galleryRow" >
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 8)">        
+          <img id="image9"  class="galleryImage" /> 
+          <p class="imageName" id="name9"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 9)">  
+          <img id="image10" class="galleryImage"  /> 
+          <p class="imageName" id="name10"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 10)">  
+          <img id="image11"  class="galleryImage"  /> 
+          <p class="imageName" id="name11"></p>
+        </div>
+        <div class="col p-3 galleryImageBlock" onclick="onClickImage(12 *_currentGalleryIndex + 11)">  
+          <img id="image12"  class="galleryImage"  /> 
+          <p class="imageName" id="name12"></p>
+        </div>
+      </div>
+      <div style="float:right; Padding:0px 20px">
+        <h5 class="textCenter">Choose a gallery:</h5>
+        <div style="Padding:0px 35px">
+          <select id ="galleryList" name="galleryList" onchange="showGallery(this.value);" class="textBox">
+          </select>
+        </div>  
+      </div>
+
+      <br><br><br>
+
+      <div class="container-fluid footer">
+        <h5>FractalDesign.net Copyright © Steven Robles 2026. All rights reserved.</h5>
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

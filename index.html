@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fractal Design</title>
+    <link rel="stylesheet" href="myStyles.css" type="text/css">
+    <!-- Need the following for dropdowns and maybe other things-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse:collapse;
+      }
+      th, td {
+        padding: 5px;
+      }
+    </style>
+
+    <script src="scripts.js"></script>
+    <script>
+
+      function loadXMLDoc() {
+        loadFractalsXml();
+        loadFractal3dXml();
+        loadAutomataXml();
+        loadAttractorsXml();
+      }
+
+      function loadFractal3dXml(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            loadFractal3D(this);
+          }
+        };
+        xmlhttp.open("GET", "Images//Fractal3d.xml", true); 
+        xmlhttp.send();
+      }
+
+      function loadFractalsXml(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            loadFractals(this);
+          }
+        };
+        xmlhttp.open("GET", "Images//Fractals.xml", true); 
+        xmlhttp.send();
+      }
+
+      function loadAutomataXml(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            loadAutomata(this);
+          }
+        };
+        xmlhttp.open("GET", "Images//automata.xml", true); 
+        xmlhttp.send();
+      }
+
+      function loadAttractorsXml(){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            loadAttractors(this);
+          }
+        };
+        xmlhttp.open("GET", "Images//attractors.xml", true); 
+        xmlhttp.send();
+      }
+
+    </script>
+  </head>
+
+  <body onload="loadXMLDoc()">
+    <div class="container-fluid" id="main" >
+      <div class="container-fluid text-bg-secondary">
+        <img class="img-fluid" src="Images/FractalBanner2.png"/> 
+      </div>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Galleries</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="GalleryJuliaSets.html">Julia Sets</a></li>
+            <li><a class="dropdown-item" href="GalleryAutomata.html">Cellular Automata</a></li>
+            <li><a class="dropdown-item" href="GalleryAttractors.html">Strange Attractors</a></li>
+            <li><a class="dropdown-item" href="GalleryFractal3d.html">3D Fractals</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Algorithms</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="FractalAlgorithm.html">Julia and Mandelbrot Sets</a></li>
+            <li><a class="dropdown-item" href="AutomataAlgorithm.html">Cellular Automata</a></li>
+            <li><a class="dropdown-item" href="AttractorAlgorithm.html">Strange Attractors</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="About.html">About</a>
+        </li>
+      </ul>
+
+      <div class="titleLeft">
+        <h4>Welcome to Fractal Design</h4>
+      </div>
+
+      <div class="subTitleLeft">
+        <h5>A gallery of fractals and cellular automata<h5>
+      </div>
+
+      <div class="row">
+
+        <div class="col p-3" >
+          <div class="slideshow-container-Fractal3D" >
+            <h5 class="textCenter">Fractals 3D</h5>
+            <!-- Full-width images with number and caption text -->
+            <div class="slides3D fade" onclick="onSlideClicked('Fractal3d', 0)">
+              <img id="fractal3D_1"  style="width:300px;height:300px;"> 
+            </div>
+            <div class="slides3D fade" onclick="onSlideClicked('Fractal3d', 1)">
+              <img id="fractal3D_2" style="width:300px;height:300px;"> 
+            </div>
+            <div class="slides3D fade" onclick="onSlideClicked('Fractal3d', 2)">
+              <img id="fractal3D_3" style="width:300px;height:300px"> 
+            </div>
+            <div class="slides3D fade" onclick="onSlideClicked('Fractal3d', 3)">
+              <img id="fractal3D_4" style="width:300px;height:300px"> 
+            </div>
+            <br>
+            <!-- The dots/circles -->
+            <div style="text-align:center">
+              <span class="dot3D dot"></span>
+              <span class="dot3D dot"></span>
+              <span class="dot3D dot"></span>
+              <span class="dot3D dot"></span>
+            </div>  
+          </div>
+        </div>
+  
+        <div class="col p-3" >
+          <div class="slideshow-container-Fractals" >
+            <h5 class="textCenter">Julia Sets</h5>
+            <!-- Full-width images with number and caption text -->
+            <div class="slidesFractals fade" onclick="onSlideClicked('Fractals', 0)">
+              <img id="fractals_1"  style="width:300px;height:300px;"> 
+            </div>
+            <div class="slidesFractals fade" onclick="onSlideClicked('Fractals', 1)">
+              <img id="fractals_2" style="width:300px;height:300px;"> 
+            </div>
+            <div class="slidesFractals fade" onclick="onSlideClicked('Fractals', 2)">
+              <img id="fractals_3" style="width:300px;height:300px"> 
+            </div>
+            <div class="slidesFractals fade" onclick="onSlideClicked('Fractals', 3)">
+              <img id="fractals_4" style="width:300px;height:300px"> 
+            </div>
+            <br>
+              <!-- The dots/circles -->
+            <div style="text-align:center">
+              <span class="dotFractals dot"></span>
+              <span class="dotFractals dot"></span>
+              <span class="dotFractals dot"></span>
+              <span class="dotFractals dot"></span>
+            </div>
+          </div>
+        </div>  
+
+        <div class="col p-3" >
+          <div class="slideshow-container-Automata" >
+            <h5 class="textCenter">Automata</h5>
+            <!-- Full-width images with number and caption text -->
+            <div class="slidesAutomata fade" onclick="onSlideClicked('Automata', 0)">
+              <img id="automata_1"  style="width:300px;height:300px;"> 
+            </div>
+            <div class="slidesAutomata fade" onclick="onSlideClicked('Automata', 1)">
+              <img id="automata_2" style="width:300px;height:300px;"> 
+            </div>
+            <div class="slidesAutomata fade" onclick="onSlideClicked('Automata', 2)">
+              <img id="automata_3" style="width:300px;height:300px"> 
+            </div>
+            <div class="slidesAutomata fade" onclick="onSlideClicked('Automata', 3)">
+              <img id="automata_4" style="width:300px;height:300px"> 
+            </div>
+            <br>
+              <!-- The dots/circles -->
+            <div style="text-align:center">
+              <span class="dotAutomata dot"></span>
+              <span class="dotAutomata dot"></span>
+              <span class="dotAutomata dot"></span>
+              <span class="dotAutomata dot"></span>
+            </div>
+          </div>
+        </div>  
+
+        <div class="col p-3" >
+          <div class="slideshow-container-Attractors" >
+            <h5 class="textCenter">Attractors</h5>
+            <!-- Full-width images with number and caption text -->
+            <div class="slidesAttractors fade" onclick="onSlideClicked('Attractors', 0)">
+              <img id="attractor_1"  style="width:300px;height:300px;"> 
+            </div>
+            <div class="slidesAttractors fade" onclick="onSlideClicked('Attractors', 1)">
+              <img id="attractor_2" style="width:300px;height:300px;"> 
+            </div>
+            <div class="slidesAttractors fade" onclick="onSlideClicked('Attractors', 2)">
+              <img id="attractor_3" style="width:300px;height:300px"> 
+            </div>
+            <div class="slidesAttractors fade" onclick="onSlideClicked('Attractors', 3)">
+              <img id="attractor_4" style="width:300px;height:300px"> 
+            </div>
+            <br>
+              <!-- The dots/circles -->
+            <div style="text-align:center">
+              <span class="dotAttractors dot"></span>
+              <span class="dotAttractors dot"></span>
+              <span class="dotAttractors dot"></span>
+              <span class="dotAttractors dot"></span>
+            </div>
+          </div>
+        </div>  
+
+      </div>
+
+    </div>
+
+    <br>
+
+    <!--Attractor Gallery 30 -1/31/26 | Fractal 3D Gallery 14 - 3/28/26 | Automata Gallery 35 - 5/9/26 -->
+    <div class="subTitleLeft">
+      <a style="font-size: larger; font-weight: bold; font-style:italic;" href="GalleryAutomata.html" target="_blank">New Automata Gallery 35!</a>
+    </div>
+
+    <div>
+			<a href="http://www.zazzle.com/srobles754?rf=238076091267845513" >
+				<img class="centerImage" src="images/home_2.gif" width="141" height="57" alt="In association with Zazzle.com" />
+            </a>
+		</div>
+
+    <div class="textCenter text" >
+      <p>High resolution prints are available at <a href="https://www.zazzle.com/store/srobles754?rf=238076091267845513" rel="nofollow">Zazzle</a>.</p>
+    </div>
+
+    <div class="textRight text">
+      <p>Last updated June 20, 2026</p>
+    </div>
+
+    <div class="container-fluid footer">
+      <h5>FractalDesign.net Copyright © Steven Robles 2026. All rights reserved.</h5>
+    </div>
+    
+  </body>
+</html> 

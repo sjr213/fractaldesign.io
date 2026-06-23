@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Automata Algorithm</title>
+        <link rel="stylesheet" href="myStyles.css" type="text/css">
+        <!-- Need the following for dropdowns and maybe other things-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+            crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="scripts.js"></script>
+    </head>
+
+    <body>
+        <div class="container-fluid" id="main">
+            <div class="container-fluid text-bg-secondary">
+                <img class="img-fluid" src="Images/FractalBanner2.png" />
+            </div>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                        aria-expanded="false">Galleries</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="GalleryJuliaSets.html">Julia Sets</a></li>
+                        <li><a class="dropdown-item" href="GalleryAutomata.html">Cellular Automata</a></li>
+                        <li><a class="dropdown-item" href="GalleryAttractors.html">Strange Attractors</a></li>
+                        <li><a class="dropdown-item" href="GalleryFractal3d.html">3D Fractals</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Algorithms</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="FractalAlgorithm.html">Julia and Mandelbrot Sets</a></li>
+                      <li><a class="dropdown-item" href="AutomataAlgorithm.html">Cellular Automata</a></li>
+                      <li><a class="dropdown-item" href="AttractorAlgorithm.html">Strange Attractors</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="About.html">About</a>
+                </li>
+            </ul>
+
+            <div class="titleLeft">
+                <h4>Cellular Automata</h4>
+            </div>
+            <div class="textLeft">
+
+                <p style="font-weight:bold;">What are cellular automata?</p>
+                <p>Cellular automata are simple programs that repetitively apply a rule or set of rules to a grid of cells.
+                    Each cell has a state and this state is interpreted by the rules and is altered by the rules. The cells
+                    can be arranged in one or more dimensions although they are usually displayed in two dimensions on a
+                    computer screen. The state is usually indicated on the computer screen by a particular color. For
+                    example if the state of a cell can be either zero or one, a cell with a state of zero may be colored
+                    white and a cell with a state of one may be colored black.</p>
+                <p>The rules examine the state of a cell and its neighbors and then determine the new state of the cell. For
+                    example consider a one dimensional automaton and three pixels or cells in a row. A rule might set the
+                    center cell to a value of zero if both neighbors have the same state; otherwise the rule sets the cell's
+                    state to one if they differ. The figure below demonstrates these rules for two different sets of initial
+                    condition. Each row of cells represents a single iteration.</p>
+                <img src="images/bz_algor/SimpleAutomata.png" class="centerImage"
+                    alt="A example of a simple cellular automaton" />
+                <p>Cellular automata do not usually produce fractals or even aesthetically pleasing images but they are
+                    interesting because simple rules can produce relatively complex behavior. An example is <a
+                        href="http://www.bitstorm.org/gameoflife/" target="_blank">Conway's game of life</a> where little
+                    blobs move across the screen, sometimes dying, sometimes multiplying. One particular cellular automata
+                    algorithm that can produce very detailed images was originally published because it mimics the
+                    Belousov-Zhabotinsky chemical reaction. At the time of this writing, all of the cellular automata on
+                    this site were produced using this algorithm or a variant of it.</p>
+                <br />
+                <p style="font-weight:bold;">Belousov-Zhabotinsky reaction</p>
+                <p>The Belousov-Zhabotinsky reaction is a chemical reaction involving bromine and acids that results in
+                    oscillations of colored patterns in solution. This chemical reaction of itself is of interest because it
+                    demonstrates non-equilibrium thermodynamics. For more details check out the links below:</p>
+                <a href="https://chem.libretexts.org/Courses/Pacific_Union_College/Kinetics/08%3A_Chemical_Kinetics/8.11%3A_Oscillating_Reactions"
+                    target="_blank">Chemical oscillations: The Belousov-Zhabotinsky reaction</a>
+                <br />
+                <a href="http://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank">Wikipedia</a>
+                <br />
+                <a href="http://www.scholarpedia.org/article/Belousov-Zhabotinsky_reaction" target="_blank">Scholarpedia</a>
+                <br />
+                <br />
+                <p style="font-weight:bold;">Belousov-Zhabotinsky Cellular Automaton</p>
+                <p>This cellular automaton was originally published by A.K. Dewdney (A.K. Dewdney. The hodgepodge machine
+                    makes waves. Scientific American. August 1988. p. 104). It's a 2 dimensional cellular automaton.</p>
+                <p>A cell can have any of n discrete states where the states are described as follows: a state of zero is
+                    considered healthy; a state of n is considered ill; and a state from 1 to n-1 is considered infected.
+                </p>
+                <p>1) If a cell is healthy (0) then the new state is given by:</p>
+                <p style="text-indent:50px;">a/k1 + b/k2</p>
+                <p>2) If a cell is ill (n) then the new state of the cell is healthy.</p>
+                <p>3) And if the cell is infected (1 to n-1) the state given by:</p>
+                <p style="text-indent:50px;">(s/a+b+1) + g</p>
+                <br />
+                <p>Where:</p>
+                <ul class="listDefault">
+                    <li class="listItemDefault">a = number of infected neighbors</li>
+                    <li class="listItemDefault">b = number of ill neighbors</li>
+                    <li class="listItemDefault">k1, k2, and g are constants</li>
+                    <li class="listItemDefault">s is the sum of states of the cell and all of its neighbors</li>
+                </ul>
+                <p>There are a number of factors that can affect the results; one obviously is the value of the constants.
+                    Below are some examples of the Belousov-Zhabotinsky algorithm with different values of the three
+                    constants. Each uses a 3 by 3 grid of cells. That is the center cell has 8 neighbors. Note different
+                    color palettes are used with each.</p>
+                <div style="position:relative; height:170px;">
+                    <div style="position:absolute; height:170px; width:350px; top:10px;">
+                        <img src="images/Bzs/bz1_300/bz24w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:10px">
+                            <li class="listItemDefault">k1: 1</li>
+                            <li class="listItemDefault">k2: 1</li>
+                            <li class="listItemDefault">g: 10</li>
+                        </ul>
+                    </div>
+                    <div style="position:absolute; height:170px; width:350px; top:10px; left:400px;">
+                        <img src="images/Bzs/bz1_300/bz82w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:10px">
+                            <li class="listItemDefault">k1: 10</li>
+                            <li class="listItemDefault">k2: 1</li>
+                            <li class="listItemDefault">g: 230</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="position:relative; height:170px;">
+                    <div style="position:absolute; height:170px; width:350px; top:10px;">
+                        <img src="images/Bzs/bz1_300/bz83w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:20px">
+                            <li class="listItemDefault">k1: 5</li>
+                            <li class="listItemDefault">k2: 1</li>
+                            <li class="listItemDefault">g: 5</li>
+                        </ul>
+                    </div>
+                    <div style="position:absolute; height:170px; width:350px; top:10px; left:400px;">
+                        <img src="images/Bzs/bz1_300/bz101w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:10px">
+                            <li class="listItemDefault">k1: 2</li>
+                            <li class="listItemDefault">k2: 1</li>
+                            <li class="listItemDefault">g: 150</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>The previous examples used all eight surrounding neighbors. You can also increase the grid to larger
+                    squares such as a 5x5 grid or larger. I've gone up a 15x15 grid of neighboring cells. You can also
+                    exclude cells within the square grid from being considered neighbors. The following examples use
+                    patterns of neighboring cells in a 3x3 grid. That is they consider some of the cells within the square
+                    grid neighbors and not others. This is indicated for each image by the grid on the right where the cells
+                    with an 'X' are counted as neighbors and the others are ignored.</p>
+                <div style="position:relative; height:170px;">
+                    <div style="position:absolute; height:170px; width:350px; top:10px;">
+                        <img src="images/Bzs/bz1_300/bz2w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:20px">
+                            <li class="listItemDefault">k1: 2</li>
+                            <li class="listItemDefault">k2: 10</li>
+                            <li class="listItemDefault">g: 1</li>
+                        </ul>
+                        <img src="images/bz_algor/grid1.jpg" style="position:absolute; left:400px; top:20px;"
+                            alt="Cell grid" />
+                    </div>
+                </div>
+                <div style="position:relative; height:170px;">
+                    <div style="position:absolute; height:170px; width:350px; top:10px;">
+                        <img src="images/Bzs/bz1_300/bz56w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:20px">
+                            <li class="listItemDefault">k1: 4</li>
+                            <li class="listItemDefault">k2: 2</li>
+                            <li class="listItemDefault">g: 5</li>
+                        </ul>
+                        <img src="images/bz_algor/grid2.jpg" style="position:absolute; left:400px; top:20px;"
+                            alt="Cell grid" />
+                    </div>
+                </div>
+                <div style="position:relative; height:170px;">
+                    <div style="position:absolute; height:170px; width:350px; top:10px;">
+                        <img src="images/Bzs/bz1_300/bz21w.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:20px">
+                            <li class="listItemDefault">k1: 1</li>
+                            <li class="listItemDefault">k2: 2</li>
+                            <li class="listItemDefault">g: 2</li>
+                        </ul>
+                        <img src="images/bz_algor/grid3.jpg" style="position:absolute; left:400px; top:20px;"
+                            alt="Cell grid" />
+                    </div>
+                </div>
+                <p>In the last example the value of the center cell is multiplied by 3.</p>
+                <p>The initial seeding also has a big effect. The seeding refers to the initial state or color values of the
+                    cells before the automaton is run. Typically each cell is given a random state that is within the color
+                    range for the automaton. That is if 256 colors are being used, a single cell will be randomly assigned a
+                    value between 1 and 256. But the distribution does not have to be random. Some values can occur more or
+                    less frequently than others. Also shapes, patterns and even complex images can be used for the initial
+                    image. If the same rules are applied to different random seedings, the resulting images can be very
+                    different. The following images show two automata with the same parameters, run for 50 iterations but
+                    with different random seedings.</p>
+                <div style="position:relative; height:180px;">
+                    <div style="position:absolute; height:170px; width:170px; top:10px;">
+                        <img src="images/bz_algor/ex1.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                    </div>
+                    <div style="position:absolute; height:170px; width:350px; top:10px; left:300px;">
+                        <img src="images/bz_algor/ex2.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                        <ul class="listDefault" style="position:absolute; left:175px; top:20px">
+                            <li class="listItemDefault">k1: 0.1</li>
+                            <li class="listItemDefault">k2: 0.7</li>
+                            <li class="listItemDefault">g: 180</li>
+                        </ul>
+                    </div>
+                </div>
+                <p>Automata also evolve with each iteration. Some will change for a finite number of cycles and then become
+                    fixed but some seem to continue to change no matter how many iterations occur. And some automaton seem
+                    to result in a few images that continue to repeat over and over again. This is characteristic of chaotic
+                    behavior. The next 3 images show the last automaton run for 100, 152 and 153 iterations.</p>
+                <div style="position:relative; height:180px;">
+                    <div style="position:absolute; height:170px; width:170px; top:10px;">
+                        <img src="images/bz_algor/ex3.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton 100 cycles" />
+                    </div>
+                    <div style="position:absolute; height:170px; width:170px; top:10px; left:170px;">
+                        <img src="images/bz_algor/ex4.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                    </div>
+                    <div style="position:absolute; height:170px; width:170px; top:10px; left:340px;">
+                        <img src="images/bz_algor/ex5.jpg" style="position:absolute; left:20px;"
+                            alt="A example of a bz automaton" />
+                    </div>
+                </div>
+                <p>As mentioned earlier, the initial seeding can have a dramatic affect on the resulting image. The
+                    following pairs of images show the results from two different types of initial seedings. In the first
+                    pair the left image shows the initial image with the pixels assigned random colors. The right image
+                    shows the resulting image.</p>
+                <div style="position:relative; height:180px;">
+                    <div style="position:absolute; height:170px; width:170px; top:10px;">
+                        <img src="images/bz_algor/randomSeed.jpg" style="position:absolute; left:20px;"
+                            alt="random seeding" />
+                    </div>
+                    <div style="position:absolute; height:170px; width:170px; top:10px; left:170px;">
+                        <img src="images/bz_algor/randomAutomaton.jpg" style="position:absolute; left:20px;"
+                            alt="random seeding automaton" />
+                    </div>
+                </div>
+                <p>The next pair shows an initial image seeded with lines. The right image is the resulting image calculated
+                    with the same parameters as used in the preceding example. </p>
+            </div>
+            <div style="position:relative; height:180px;">
+                <div style="position:absolute; height:170px; width:170px; top:10px;">
+                    <img src="images/bz_algor/linesSeed.jpg" style="position:absolute; left:20px;" alt="random seeding" />
+                </div>
+                <div style="position:absolute; height:170px; width:170px; top:10px; left:170px;">
+                    <img src="images/bz_algor/linesAutomaton.jpg" style="position:absolute; left:20px;"
+                        alt="random seeding automaton" />
+                </div>
+            </div>
+            <br />
+            <p>In summary the following factors can result in different automata images:</p>
+            <ul class="listDefault" style="position:relative; left:50px; top:10px">
+                <li class="listItemDefault">Algorithm</li>
+                <li class="listItemDefault">Parameters</li>
+                <li class="listItemDefault">Neighboring cells - number, pattern and contribution</li>
+                <li class="listItemDefault">Seeding</li>
+                <li class="listItemDefault">Number of states (colors)</li>
+                <li class="listItemDefault">Color palette</li>
+            </ul>
+            <br />
+            <p>Even with a single algorithm there are an infinite number of interesting images that can result.</p>
+            <br />
+
+        </div>
+
+        <div class="container-fluid footer">
+            <h5>FractalDesign.net Copyright © Steven Robles 2026. All rights reserved.</h5>
+        </div>
+    </body>
+
+</html>
