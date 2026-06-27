@@ -70,40 +70,40 @@
                     described as an attractor. And when the attractor displays fractal like characteristics it is considered a strange attractor.</p>
                 <p>Let's move on to a simple example. Consider the following equations know as the Hénon map. The Hénon map has been studied as an example 
                     of chaotic behavior and appears on many other sites on attractors so I'll use it too.</p>
-                <img src="images/attractorAlgorithm/sa_eq1.png" class="centerImage" width="186" height="68" alt="Xn+1 = Yn + 1 - 1.4Xn^2 Yn+1 = 0.3Xn"/>
+                <img src="Images/attractorAlgorithm/sa_eq1.png" class="centerImage" width="186" height="68" alt="Xn+1 = Yn + 1 - 1.4Xn^2 Yn+1 = 0.3Xn"/>
                 <p>Start off by plugging some random initial value for X<sub>0</sub> and Y<sub>0</sub> into these equations to find X<sub>1</sub> and Y<sub>1</sub>. 
                     Plot the results X1 and Y1 as a black pixel in the Cartesian plane on a white background. Repeat the calculation with X1 and Y1 as input and plot 
                     the output again as a black pixel. If you repeat the process over and over again for a few hundred cycles you will produce an image similar to that below.</p>
-                <img src="images/attractorAlgorithm/henonMap.png" class="centerImage" width="281" height="245" alt="Image of the henon map"/>
+                <img src="Images/attractorAlgorithm/henonMap.png" class="centerImage" width="281" height="245" alt="Image of the henon map"/>
                 <p>An infinite number of attractors can be described by the generalized 2nd order 2 dimensional quadratic map:</p>
-                <img src="images/attractorAlgorithm/sa_eq2.png" class="centerImage" width="376" height="74" alt="Xn+1 = a1 + a2Xn +a3Xn^2 + a4XnYn + a5Yn + a6Y^2 Yn+1 = a7 + a8Xn + a9Xn^2 + a10XnYn + a11Yn + a12Yn^2"/>
+                <img src="Images/attractorAlgorithm/sa_eq2.png" class="centerImage" width="376" height="74" alt="Xn+1 = a1 + a2Xn +a3Xn^2 + a4XnYn + a5Yn + a6Y^2 Yn+1 = a7 + a8Xn + a9Xn^2 + a10XnYn + a11Yn + a12Yn^2"/>
                 <p>Where each set of coefficients a<sub>1</sub> through a<sub>12</sub> can potentially result in a different attractor. The Henon map above has 
                     values of a<sub>1</sub>:1, a<sub>3</sub>:-1.4, a<sub>5</sub>: 1, a<sub>8</sub>:0.3 and all the other coefficients set to zero. This map is 
                     considered 2nd order because the highest exponent is to the 2nd power.</p>
                 <p>Another specific example of this map is given by the following equation.</p>
-                <img src="images/attractorAlgorithm/sa_eq3.png" class="centerImage" width="409" height="73" alt="Xn+1 = -0.3 + 0.2Xn +0.4Xn^2 + -0.6XnYn + -0.8Yn + 0.2Y^2 Yn+1 = 0.5 + -0.2Xn + 0.5Xn^2 + 0.7XnYn + 0.2Yn + -0.6Yn^2"/>
+                <img src="Images/attractorAlgorithm/sa_eq3.png" class="centerImage" width="409" height="73" alt="Xn+1 = -0.3 + 0.2Xn +0.4Xn^2 + -0.6XnYn + -0.8Yn + 0.2Y^2 Yn+1 = 0.5 + -0.2Xn + 0.5Xn^2 + 0.7XnYn + 0.2Yn + -0.6Yn^2"/>
                 <p>When this map is iterated over the following image results.</p>
-                <img src="images/attractorAlgorithm/TwoD3.png" class="centerImage" width="290" height="240" alt="Attractor example"/>
+                <img src="Images/attractorAlgorithm/TwoD3.png" class="centerImage" width="290" height="240" alt="Attractor example"/>
                 <p>Technically the image will vary slightly with the initial values of X<sub>0</sub>,Y<sub>0</sub>, but the resulting points will eventually 
                     fall within the same pattern as observed in the image. As the iterations continue the points are “attracted” to those that make up the attractor.</p>
                 <p>Since we have 2 dimensions we are coloring the points black if they are hit. But we can also use a 3D map and use the 3rd dimension to indicate color. 
                     That is the z value can be mapped to a color index.</p>
                 <p>The general 2nd order 3D map is:</p>
-                <img src="images/attractorAlgorithm/sa_eq4.png" class="centerImage" width="661" height="112" alt="Xn+1 = a1 + a2Xn + a3Xn^2 +a4XnYn +a5XnZn +a6Yn + a7Yn^2 + a8YnZn + a9Zn +a10zn^2 Yn+1 = a11 + a12Xn + a13Xn^2 +a14XnYn +a15XnZn +a16Yn + a17Yn^2 + a18YnZn + a19Zn +a20zn^2 Zn+1 = a21 + a22Xn + a23Xn^2 +a24XnYn +a25XnZn +a26Yn + a27Yn^2 + a28YnZn + a29Zn +a30zn^2"/>
+                <img src="Images/attractorAlgorithm/sa_eq4.png" class="centerImage" width="661" height="112" alt="Xn+1 = a1 + a2Xn + a3Xn^2 +a4XnYn +a5XnZn +a6Yn + a7Yn^2 + a8YnZn + a9Zn +a10zn^2 Yn+1 = a11 + a12Xn + a13Xn^2 +a14XnYn +a15XnZn +a16Yn + a17Yn^2 + a18YnZn + a19Zn +a20zn^2 Zn+1 = a21 + a22Xn + a23Xn^2 +a24XnYn +a25XnZn +a26Yn + a27Yn^2 + a28YnZn + a29Zn +a30zn^2"/>
                 <p>A specific example is:</p>
-                <img src="images/attractorAlgorithm/sa_eq5.png" class="centerImage" width="624" height="107" alt="Xn+1 = -0.6Xn - 0.1Xn^2 - 0.1XnYn +0.6XnZn +0.4Yn - 0.1Yn^2 + 0.2YnZn + 0.5Zn +0.6zn^2 Yn+1 = 0.4 + 0.2Xn - 0.3Xn^2 +0.5XnYn - 0.5XnZn - 0.9Yn - 1.1Yn^2 -0.2YnZn + 0.7Zn -0.3zn^2 Zn+1 = 0.5 + 0.5Xn - 1.1Xn^2 - 0.2XnYn - 0.1XnZn - 0.6Yn + 0.5Yn^2 + 0.6YnZn + 0.9Zn - 0.9zn^2"/>
+                <img src="Images/attractorAlgorithm/sa_eq5.png" class="centerImage" width="624" height="107" alt="Xn+1 = -0.6Xn - 0.1Xn^2 - 0.1XnYn +0.6XnZn +0.4Yn - 0.1Yn^2 + 0.2YnZn + 0.5Zn +0.6zn^2 Yn+1 = 0.4 + 0.2Xn - 0.3Xn^2 +0.5XnYn - 0.5XnZn - 0.9Yn - 1.1Yn^2 -0.2YnZn + 0.7Zn -0.3zn^2 Zn+1 = 0.5 + 0.5Xn - 1.1Xn^2 - 0.2XnYn - 0.1XnZn - 0.6Yn + 0.5Yn^2 + 0.6YnZn + 0.9Zn - 0.9zn^2"/>
                 <p>And the resulting image colored using the z dimension is:</p>
-                <img src="images/attractorAlgorithm/ThreeD2Order4.jpg" class="centerImage" width="200" height="200" alt="An example of a 3 dimension 2nd order attractor"/>
+                <img src="Images/attractorAlgorithm/ThreeD2Order4.jpg" class="centerImage" width="200" height="200" alt="An example of a 3 dimension 2nd order attractor"/>
                 <p>An interesting characteristic of attractors and chaotic behavior is that the next point does not usually come out next to the last. For example if you were plotting the points of a linear equation such as line y = mx + b with increasing values of x, you can predict where the next value of y will be, close to the last last. However with attractors you are not choosing the sequence of x values but they are provided from the output of the last iteration. If you watch the image as its generated point by point, the points seem to pop up all over the place at first. The following series of images illustrates this by showing the same attractor with 100, 1,000 and 50,000 iterations.</p>
                 <div style="position:relative; height:220px;">
                     <div style="position:absolute; height:200px; width:220px; top:10px;">
-                        <img src="images/attractorAlgorithm/sat007_100iterations.jpg" style="position:absolute; left:20px;" alt="A example of a strange attractor at 100 iterations"/>
+                        <img src="Images/attractorAlgorithm/sat007_100iterations.jpg" style="position:absolute; left:20px;" alt="A example of a strange attractor at 100 iterations"/>
                     </div>
                 <div style="position:absolute; height:200px; width:220px; top:10px; left:220px;">
-                    <img src="images/attractorAlgorithm/sat007_1000iterations.jpg" style="position:absolute; left:20px;" alt="A example of a strange attractor at 1000 iterations"/>
+                    <img src="Images/attractorAlgorithm/sat007_1000iterations.jpg" style="position:absolute; left:20px;" alt="A example of a strange attractor at 1000 iterations"/>
                 </div>
                 <div style="position:absolute; height:200px; width:220px; top:10px; left:440px;">
-                    <img src="images/attractorAlgorithm/sat007_50000iterations.jpg" style="position:absolute; left:20px;" alt="A example of a strange attractor at 50000 iterations"/>
+                    <img src="Images/attractorAlgorithm/sat007_50000iterations.jpg" style="position:absolute; left:20px;" alt="A example of a strange attractor at 50000 iterations"/>
                 </div>
             </div>
             <p>Not all values for the coefficients in the above equations will produce attractors. Usually when trying to find attractors a computer program 
@@ -113,7 +113,7 @@
                 the distance between two close points will differ in the next iteration. If the difference doubles by 2 the Lyapunov exponent is 1. If Lyapunov 
                 exponent is negative the difference decreases and the solution converges and you don't have chaos. The Lyapunov exponent is given by the 
                 following equation.</p>
-            <img src="images/attractorAlgorithm/sa_eq6.png" class="centerImage" width="181" height="64" alt="Lyapunov equation"/>
+            <img src="Images/attractorAlgorithm/sa_eq6.png" class="centerImage" width="181" height="64" alt="Lyapunov equation"/>
             <p>Where:</p>
             <ul class="listDefault">
                 <li class="listItemDefault">λ is the Lyapunov exponent </li>
@@ -123,10 +123,10 @@
             <p>This calculation is not trivial and applying it in this case is beyond my math skills. Fortunately there are approximations. 
                 The one I've used comes from Sprott's book “Strange Attractors: Creating Patterns in Chaos” which is available on 
                 his <a href="http://sprott.physics.wisc.edu/sprott.htm" target="_blank">web site</a>.</p>
-            <img src="images/attractorAlgorithm/sa_eq7.png" class="centerImage" width="151" height="73" alt="Lyapunov approximation equation"/>
+            <img src="Images/attractorAlgorithm/sa_eq7.png" class="centerImage" width="151" height="73" alt="Lyapunov approximation equation"/>
             <p>Where:</p>
             <ul class="listDefault">
-                <li class="listItemDefault">d is the distance between two points. For example for two dimensions: <img src="images/attractorAlgorithm/sa_eq8.png" class="center" width="204" height="34" alt="distance equation"/></li>
+                <li class="listItemDefault">d is the distance between two points. For example for two dimensions: <img src="Images/attractorAlgorithm/sa_eq8.png" class="center" width="204" height="34" alt="distance equation"/></li>
                 <li class="listItemDefault">n is a particular iteration</li>
                 <li class="listItemDefault">N is the total number of iterations</li>
             </ul>
@@ -146,7 +146,7 @@
                 The specific iteration that you start to plot is not important but you want to get an idea of the range of z-values before you can determine the color. 
                 The (x, y) values for each iteration are mapped to pixel positions in the image and the z-coordinate value is mapped to the palette using the 
                 following equation.</p>
-            <img src="images/attractorAlgorithm/sa_eq9.png" class="centerImage" width="232" height="57" alt="Mapping z-coordinate to palette"/>
+            <img src="Images/attractorAlgorithm/sa_eq9.png" class="centerImage" width="232" height="57" alt="Mapping z-coordinate to palette"/>
             <p>Where:</p>
             <ul class="listDefault">
                 <li class="listItemDefault">z<sub>min</sub> is the minimum expected z value</li>
@@ -163,17 +163,17 @@
                 the later method of only coloring pixels if the new index was higher than the last.</p>
             <div style="position:relative; height:220px;">
                 <div style="position:absolute; height:200px; width:220px; top:10px;">
-                    <img src="images/attractorAlgorithm/sat023_last.jpg" style="position:absolute; left:20px;" alt="Example of an attractor colored using the last hit at an x,y position"/>
+                    <img src="Images/attractorAlgorithm/sat023_last.jpg" style="position:absolute; left:20px;" alt="Example of an attractor colored using the last hit at an x,y position"/>
                 </div>
                 <div style="position:absolute; height:200px; width:220px; top:10px; left:220px;">
-                    <img src="images/attractorAlgorithm/sat023_highest.jpg" style="position:absolute; left:20px;" alt="Example of an attractor colored using the highest z value at an x,y position"/>
+                    <img src="Images/attractorAlgorithm/sat023_highest.jpg" style="position:absolute; left:20px;" alt="Example of an attractor colored using the highest z value at an x,y position"/>
                 </div>
             </div>
             <p>Another coloring algorithm ignores the z index and just counts the number of times a pixel was hit during the image calculation. That is for 
                 every iteration that produces a point at the same (x, y) coordinate the count at the position is increased by one. Then the number of times 
                 the pixel was hit is mapped to the color palette. This method can also be used to color two dimensional attractors. The image below demonstrates 
                 this method.</p>
-            <img src="images/attractorAlgorithm/sat026_counts.jpg" class="centerImage" width="200" height="200" alt="Count coloring algorithm"/>
+            <img src="Images/attractorAlgorithm/sat026_counts.jpg" class="centerImage" width="200" height="200" alt="Count coloring algorithm"/>
             <p>There are other methods that can be used for coloring. For example when a specific (x, y) point is hit at different z values you can average 
                 the colors to show the overlap. Another example mentioned in Sprott's book that is useful for even 2 dimensional attractors involves 
                 creating a shadow behind the attractor in the image.</p>

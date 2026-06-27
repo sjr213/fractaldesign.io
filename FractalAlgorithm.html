@@ -65,39 +65,39 @@
         <p>Since these algorithms are based on complex numbers let's start off with a review of some of the basic math.
           Complex numbers consist of a real and imaginary component. For example consider the complex number z below,
           which has a real number component x and an imaginary number component y<i>i</i>.</p>
-        <img src="images/algor/e2.jpg" class="centerImage" style="width:86px;height:26px" alt="z=x+yi" />
+        <img src="Images/algor/e2.jpg" class="centerImage" style="width:86px;height:26px" alt="z=x+yi" />
         <p>Imaginary numbers are a mathematical invention to account for the problem of taking the square root of a
           negative number. Imaginary numbers include the letter <i>i</i> as a factor to represent the square root of -1.
         </p>
-        <img src="images/algor/e3.jpg" class="centerImage" style="width:74px;height:33px" alt="i=-1^1/2" />
+        <img src="Images/algor/e3.jpg" class="centerImage" style="width:74px;height:33px" alt="i=-1^1/2" />
         <p>For example, to obtain the square root of a negative number, the <i>i</i> can be factored out.</p>
-        <img src="images/algor/e1.jpg" class="centerImage" style="width:204px;height:41px"
+        <img src="Images/algor/e1.jpg" class="centerImage" style="width:204px;height:41px"
           alt="-4^0.5 = (-1x2^2)^0.5 = 2x(-1)^0.5 = 2i" />
         <p>In the equation above, the y factor of y<i>i</i> is a real number just like x. Complex numbers can be
           manipulated like binary numbers with special attention given to the factor <i>i</i>. Operations on complex
           numbers usually result in a complex number. For example consider the multiplication of the two complex numbers
           below.</p>
-        <img src="images/algor/e9.jpg" class="centerImage" style="width:247px;height:117px"
+        <img src="Images/algor/e9.jpg" class="centerImage" style="width:247px;height:117px"
           alt="(2+5i)x(3-4i)= (2x3)+(2x-4i)+(3x5i)+(-4ix5i)= 6-8i+15i-20i^2= 6-8i+15+20= 26+7i" />
         <p>The real and imaginary components of complex numbers can be used to represent different dimensions. For
           example, complex numbers can be plotted on the Cartesian plane with the real component along the x-axis and the
           imaginary component along the y-axis. The following figure shows the complex number z = 2+4<i>i</i> plotted on
           the Cartesian plane.</p>
-        <img src="images/algor/graph.jpg" class="centerImage" style="width:284px;height:284px" alt="Cartesian plot" />
+        <img src="Images/algor/graph.jpg" class="centerImage" style="width:284px;height:284px" alt="Cartesian plot" />
         <p>Cartesian coordinates can also be used to represent location on a computer screen. Computer images are composed
           of numerous small squares called pixels. Each pixel displays a single color at a given moment. When magnified, a
           computer image looks like a mosaic of colored tiles. However when viewed as intended, the eye perceives the
           image as a smooth continuous picture. The image below shows a Mandelbrot set with an enlargement of a small area
           demonstrating the mosaic appearance of pixels.</p>
-        <img src="images/algor/man3.jpg" class="centerImage" style="width:287px;height:287px" alt="Mandelbrot" />
+        <img src="Images/algor/man3.jpg" class="centerImage" style="width:287px;height:287px" alt="Mandelbrot" />
         <p>Mandelbrot and Julia set fractals are constructed using functions of complex numbers. One of the simplest and
           most commonly used functions is:</p>
-        <img src="images/algor/e5.jpg" class="centerImage" style="width:105px;height:33px" alt="f(x) = x^2+C" />
+        <img src="Images/algor/e5.jpg" class="centerImage" style="width:105px;height:33px" alt="f(x) = x^2+C" />
         <p>Where both z and C are complex numbers. This is the equation used to generate the preceding Mandelbrot set
           image. Where:</p>
-        <img src="images/algor/e2.jpg" class="centerImage" style="width:86px;height:26px" alt="z=x+yi" />
+        <img src="Images/algor/e2.jpg" class="centerImage" style="width:86px;height:26px" alt="z=x+yi" />
         <br />
-        <img src="images/algor/e6.jpg" class="centerImage" style="width:87px;height:27px" alt="C= a + bi" />
+        <img src="Images/algor/e6.jpg" class="centerImage" style="width:87px;height:27px" alt="C= a + bi" />
         <p>When calculating Julia sets, z is a variable representing a Cartesian coordinate within the image and C is a
           constant complex number. C does not change during the calculation of the entire image. However, when different
           values of C are used, different images representing different Julia sets will result.</p>
@@ -118,7 +118,7 @@
           occurred until the norm exceeds the bailout parameter will be used to assign a color to the pixel. The number
           assigned to the pixel will be an integer value between zero and the maximum number of colors used to make the
           image.</p>
-        <img src="images/algor/e10.jpg" class="centerImage" style="width:160px;height:35px"
+        <img src="Images/algor/e10.jpg" class="centerImage" style="width:160px;height:35px"
           alt="norm = ||z|| = (x^2+y^2)^1/2" />
         <p>The series of calculated values for a single point in the Mandelbrot or Julia set is referred to as an orbit.
           Orbits can exhibit different behavior. Some orbits tend to move towards a fixed number, some oscillate back and
@@ -133,7 +133,7 @@
           to map to the indexes in the image array.</p>
         <p>The colors used in the table or palette can have a big effect on the way an image appears. In the figure below,
           each image has the same integer values assigned to all the same pixels but the color table has been changed.</p>
-        <img src="images/algor/colors.jpg" class="centerImage" style="width:574px;height:287px" alt="Coloring examples" />
+        <img src="Images/algor/colors.jpg" class="centerImage" style="width:574px;height:287px" alt="Coloring examples" />
         <p>The calculation of a Mandelbrot set is similar. The difference is in the values that are substituted into the
           equation. In the equation for f(z) the pixel coordinate (x,y) is substituted into the complex number C and (0,0)
           is substituted for a starting value of z. After the first iteration, the value of f(z) is substituted for z just
@@ -145,7 +145,7 @@
           of e^-|z| is calculated at each iteration and summed over all iterations. Another method for producing smoother
           fractals is the Distance Estimate method. The distance method involves calculating the following formula for
           each point.</p>
-        <img src="images/algor/e7.jpg" class="centerImage" style="width:150px;height:70px"
+        <img src="Images/algor/e7.jpg" class="centerImage" style="width:150px;height:70px"
           alt="f(z) = 2|z|log|z|/|z'|" />
         <p>Where z' is the derivative of z and |z| is the norm of z</p>
         <p>Another coloring algorithm that deserves mention is orbit traps. This is actually a group of related methods
