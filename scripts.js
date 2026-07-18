@@ -18,10 +18,10 @@ let firstAttractorsTime = false;
 
 // First index slides start at 
 // ranges from 0 to number of slides - 4
-let firstIndex3D = 136;                // current max = 15 x 12 = 180 - 4 = 176
-let firstIndexFractals = 148;          // current max = 38 x 12 = 456 - 4 = 452
-let firstIndexAutomata = 136;          // current max = 35 x 12 = 420 - 4 = 404
-let firstIndexAttractors = 136;        // current max = 30 x 12 = 360 - 4 = 356
+let firstIndex3D = 140;                // current max = 15 x 12 = 180 - 4 = 176
+let firstIndexFractals = 152;          // current max = 38 x 12 = 456 - 4 = 452
+let firstIndexAutomata = 140;          // current max = 35 x 12 = 420 - 4 = 404
+let firstIndexAttractors = 140;        // current max = 30 x 12 = 360 - 4 = 356
 
 let _groupsFractal3D;
 let _groupsFractals;
