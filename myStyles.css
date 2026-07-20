@@ -176,13 +176,9 @@ li
   width:145px;height:145px;
 }
 
-.galleryRow1
-{
-  padding: 0px 200px 0px 200px;
-}
-
 .galleryRow
 {
+  align-items: center;
   padding: 0px 200px;
 }
 
@@ -237,7 +233,7 @@ li
 .single-image {
     object-position: center;
     object-fit: cover;
-    height: 700px;
-    width: 700px;
+    max-height: 700px;
+    max-width: 700px;
 }
 
